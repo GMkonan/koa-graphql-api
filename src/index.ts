@@ -1,32 +1,10 @@
-import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { User } from "./models/User";
+import mongoose from "mongoose";
 
 (async () => {
-
-    await createConnection({
-        type: "postgres",
-        host: "localhost",
-        port: 5432,
-        username: "postgres",
-        password: "postgres",
-        database: "nodedb",
-        entities: ["dist/models/*.js"],
-        migrations: ["dist/migrations/*.js"],
-        synchronize: true,
-        cli: {
-            migrationsDir: "src/migrations"
-        }
-    }).then(async (connection) => {
-        connection.manager.create(User, {firstName: "test"})
-        console.log("connected")
-        connection.runMigrations();
-        console.log("run migrations")
-
-        const users = await connection.manager.find(User, {})
-        console.log(users)
-    })
-
+    const database = async () => {
+        mongoose.connect('mongodb://localhost:27017/koatest');
+    }
+    database().catch(err => console.log(err));
     
-
+    console.log("connected")
 })();
