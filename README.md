@@ -5,6 +5,8 @@ Interesting videos/articles related to this:
 - https://www.youtube.com/watch?v=aTf8QTjw4RE&t=2120s
 - https://levelup.gitconnected.com/building-your-graphql-api-with-node-and-mongodb-799a2b9ae0b4
 - https://www.bmc.com/blogs/mongodb-docker-container/
+- https://graphql.org/learn/schema/
+- https://blog.devgenius.io/creating-crud-graphql-api-with-nodejs-express-mongodb-16c97e20e212
 
 #### some questions
 research more about middlewares
