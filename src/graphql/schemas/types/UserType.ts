@@ -1,7 +1,5 @@
-const { buildSchema } = require('graphql');
-
 //Using graphql's SDL
-const UserType = buildSchema(`#graphql
+const UserType = `#graphql
   """
   User attributes definition
   """
@@ -32,7 +30,7 @@ const UserType = buildSchema(`#graphql
       query: Query,
       mutation: Mutation
   }
-`);
+`;
 
 export default UserType;
 

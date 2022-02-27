@@ -2,8 +2,7 @@ import Koa from 'koa';
 import mount from 'koa-mount';
 import { graphqlHTTP } from 'koa-graphql';
 import mongoose from "mongoose";
-import UserType from './graphql/schemas/UserType';
-import UserResolver from './graphql/resolvers/UserResolver';
+import schema from './graphql';
 
 (async () => {
 
@@ -13,8 +12,7 @@ import UserResolver from './graphql/resolvers/UserResolver';
         mount(
           '/graphql',
           graphqlHTTP({
-            schema: UserType,
-            rootValue: UserResolver,
+            schema: schema,
             graphiql: true,
           }),
         ),

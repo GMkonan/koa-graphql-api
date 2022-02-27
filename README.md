@@ -7,6 +7,7 @@ Interesting videos/articles related to this:
 - https://www.bmc.com/blogs/mongodb-docker-container/
 - https://graphql.org/learn/schema/
 - https://blog.devgenius.io/creating-crud-graphql-api-with-nodejs-express-mongodb-16c97e20e212
+- https://www.graphql-tools.com/docs/schema-merging?#merging-type-definitions
 
 #### some questions
 research more about middlewares
