@@ -15,10 +15,43 @@ const UserResolver = {
             } catch(err) {
                 throw err
             }
+        },//@ts-ignore
+        user: async (_, {id}) => {
+            try {
+                const fetchedUser = await User.findById(id)
+                return {
+                    ...fetchedUser._doc,
+                    id: fetchedUser.id,
+                    createdAt: new Date(fetchedUser._doc.createdAt).toISOString()
+                }
+            } catch (err) {
+                throw err
+            }
         }
     },
-    Mutation: {
-        createUser: () => "This is not working yet!"
+    Mutation: { //@ts-ignore
+        async createUser(_, { user }) {
+            try {
+                const { email, name } = user
+                const modelUser = new User({email, name})
+                const newUser = await modelUser.save()
+                return { ...newUser._doc, id: newUser.id }
+            } catch (err) {
+                throw err
+            }
+        },//@ts-ignore
+        async deleteUser(_, { id }) {
+            try {               
+                const deletedUser = await User.findByIdAndDelete(id)
+                return {
+                    ...deletedUser._doc,
+                    id: deletedUser.id,
+                    createdAt: new Date(deletedUser._doc.createdAt).toISOString()
+                }
+            } catch (err) {
+                throw err
+            }
+        }
       },
 }
 
