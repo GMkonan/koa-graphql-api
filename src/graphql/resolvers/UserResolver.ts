@@ -51,6 +51,14 @@ const UserResolver = {
             } catch (err) {
                 throw err
             }
+        },//@ts-ignore
+        async updateUser(_, { id, email, name }) {
+            try {
+                const updatedUser = await User.findByIdAndUpdate(id, { email, name })
+                return `Update User ${updatedUser.id} <${updatedUser.name}> succesfully!`
+            } catch (err) {
+                throw err
+            }
         }
       },
 }
